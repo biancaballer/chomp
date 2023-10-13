@@ -9,6 +9,8 @@ pygame.display.set_caption("Chomp!")
 screen.fill((106, 238, 252))
 
 pygame.draw.rect(screen, (100, 25, 0), (0, 380, 400, 400))
+sand = pygame.image.load("assets/images/sand.png").convert()
+screen.blit(sand, (200, 200, 64, 64))
 pygame.display.flip()
 while True:
     for event in pygame.event.get():
