@@ -1,10 +1,14 @@
 import pygame
 from settings import *
 
+
 class Fish(pygame.sprite.Sprite):
     def __init__(self, x, y):
-        self.image = pygame.image.load("assets/images/orange_fish.png").convert()
-        self.image.set_colorkey((0, 0, 0))
+        self.right_image = pygame.image.load("assets/images/orange_fish.png").convert()
+        self.right_image.set_colorkey((0, 0, 0))
+        self.image = self.right_image
+        self.left_image = pygame.transform.flip(self.image, True, False)
+
         self.x = x
         self.y = y
         self.moving_left = False
@@ -19,8 +23,10 @@ class Fish(pygame.sprite.Sprite):
     def update(self):
         if self.moving_left:
             self.x -= 3
+            self.image = self.left_image
         elif self.moving_right:
             self.x += 3
+            self.image = self.right_image
         elif self.moving_up:
             self.y -= 3
         elif self.moving_down:
@@ -34,3 +40,4 @@ class Fish(pygame.sprite.Sprite):
             self.y = 0
         elif self.y > SCREEN_HEIGHT - TILE_SIZE:
             self.y = SCREEN_HEIGHT - TILE_SIZE
+# make it not touch the sand and update to pic on phone
