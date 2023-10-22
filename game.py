@@ -35,7 +35,6 @@ def draw_background():
         y = (random.randint(SCREEN_HEIGHT - 2 * TILE_SIZE, SCREEN_HEIGHT)
              - (0.5 * TILE_SIZE))
         background.blit(seagrass, (x, y))
-    # blit  in water tiles
     text = game_font.render("CHOMP!", True, (255, 69, 0))
     background.blit(text, (SCREEN_WIDTH // 2 - text.get_width() // 2,
                            SCREEN_HEIGHT // 2 - text.get_height() // 2))
