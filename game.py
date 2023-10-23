@@ -2,6 +2,7 @@ import pygame
 import sys
 import random
 import fish
+import minnow
 from settings import *  # imports variables from settings keeps code clean
 
 pygame.init()
@@ -17,6 +18,8 @@ sand_top.set_colorkey((0, 0, 0))
 seagrass.set_colorkey((0, 0, 0))
 
 my_fish = fish.Fish(168, 168)  # create a new fish
+my_minnow = minnow.Minnow(100, 250)
+my_minnows = []
 background = screen.copy()
 clock = pygame.time.Clock()
 
@@ -71,5 +74,6 @@ while True:
     screen.blit(background, (0, 0))
     my_fish.update()
     my_fish.draw(screen)
+    my_minnow.draw(screen)
     pygame.display.flip()
     clock.tick(60)
