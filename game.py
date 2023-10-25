@@ -73,12 +73,15 @@ while True:
                 my_fish.moving_up = False
             if event.key == pygame.K_DOWN:
                 my_fish.moving_down = False
-    # update the game screen
-    screen.blit(background, (0, 0))
     my_fish.update()
     for my_minnow in my_minnows:
-        my_minnow.draw(screen)
+        my_minnow.update()
+
+    # draw the game screen
+    screen.blit(background, (0, 0))
     my_fish.draw(screen)
+    for my_minnow in my_minnows:
+        my_minnow.draw(screen)
     pygame.display.flip()
     clock.tick(60)
-# update file and fix syntax error
+

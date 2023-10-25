@@ -4,6 +4,7 @@ from settings import *
 
 class Fish(pygame.sprite.Sprite):
     def __init__(self, x, y):
+        super().__init__()
         self.right_image = pygame.image.load("assets/images/orange_fish.png").convert()
         self.right_image.set_colorkey((0, 0, 0))
         self.image = self.right_image
@@ -39,4 +40,5 @@ class Fish(pygame.sprite.Sprite):
             self.rect.top = 0
         elif self.rect.bottom > WATER_BOTTOM:  # accounts for sand
             self.rect.bottom = WATER_BOTTOM
+
 
