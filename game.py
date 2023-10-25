@@ -20,8 +20,8 @@ seagrass.set_colorkey((0, 0, 0))
 my_fish = fish.Fish(168, 168)  # create a new fish
 my_minnows = []
 for s in range(NUM_MINNOWS):
-    my_minnows.append(minnow.Minnow(random.randint(0, SCREEN_WIDTH),
-                                    (0, WATER_BOTTOM)))
+    my_minnows.append(minnow.Minnow(random.randint(0, SCREEN_WIDTH - TILE_SIZE),
+                                    random.randint(0, WATER_BOTTOM - TILE_SIZE)))
 
 background = screen.copy()
 clock = pygame.time.Clock()
@@ -76,9 +76,9 @@ while True:
     # update the game screen
     screen.blit(background, (0, 0))
     my_fish.update()
-    my_fish.draw(screen)
     for my_minnow in my_minnows:
         my_minnow.draw(screen)
+    my_fish.draw(screen)
     pygame.display.flip()
     clock.tick(60)
 # update file and fix syntax error
