@@ -1,10 +1,7 @@
 import pygame
 from settings import *
-
-
-class Minnow(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super().__init__()
+class Minnow:
+    def __init__(self, x,y):
         self.right_image = pygame.image.load("assets/images/purple_fish.png").convert()
         self.right_image.set_colorkey((0, 0, 0))
         self.left_image = pygame.transform.flip(self.right_image, True, False)
@@ -46,8 +43,5 @@ class Minnow(pygame.sprite.Sprite):
             self.moving_down = False
 
     def draw(self, screen):
-        screen.blit(self.image, (self.rect.x, self.rect.y))
-
-minnows = pygame.sprite.Group()
-
+        screen.blit(self.image, self.rect)
 
